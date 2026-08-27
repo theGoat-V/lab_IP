@@ -1,27 +1,28 @@
-n = int(input("Leer número: "))
+numero = int(input("Leer numero: "))
 es_primo = True
-if n <= 1:
+
+if numero <= 1:
     es_primo = False
 else:
     i = 2
-    while i <= n:
-        if n % i == 0:
-            es_primo == False
-            break
+    while i < numero:
+        if numero % i == 0:
+            es_primo = False
         i = i + 1
 
 if es_primo == True:
-    print("es primo")
-else:
-    print("no primo")
-if n <= 0:
+    print("Es primo")
+
     a = 0
     b = 1
-    while a < n:
+    while a < numero:
         siguiente = a + b
         a = b
         b = siguiente
-    if a == n:
-        print("Fibonacci")
-    if a != n:
-        print("No Fibonacci")
+
+    if a == numero:
+        print("Esta en Fibonacci")
+    else:
+        print("No esta en Fibonacci")
+else:
+    print("No es primo")
