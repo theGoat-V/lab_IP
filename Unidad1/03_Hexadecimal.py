@@ -1,4 +1,4 @@
-Numero = 10 
+Numero = 12 
 if Numero == 0:
     print ("0")
 
