@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}{{ unidad.titulo }}{% endblock %}
+{% block contenido %}
+<p class="migas"><a href="{{ url_for('inicio') }}">Inicio</a> › {{ unidad.titulo }}</p>
+<h1>{{ unidad.titulo }}</h1>
+<p class="sub">{{ unidad.descripcion }}</p>
+{% if unidad.trabajos %}
+<ul class="menu">
+  {% for t in unidad.trabajos %}
+  <li>
+    <a href="{{ url_for('trabajo', num=num, id_trabajo=t.id) }}">
+      <span class="idx">{{ loop.index }}</span>
+      <span class="txt"><strong>{{ t.titulo }}</strong><br><small>{{ t.archivo }} · {{ t.descripcion }}</small></span>
+      <span class="flecha">→</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="aviso">Aún no hay trabajos cargados en esta unidad.</p>
+{% endif %}
+{% endblock %}

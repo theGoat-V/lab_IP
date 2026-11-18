@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Selecciona una unidad</h1>
+<div class="rejilla">
+  {% for n, u in unidades.items() %}
+    {% if u.trabajos %}
+      <a class="tarjeta" href="{{ url_for('unidad', num=n) }}">
+        <span class="num">{{ n }}</span>
+        <h2>{{ u.titulo }}</h2>
+        <p>{{ u.descripcion }}</p>
+        <small>{{ u.trabajos|length }} trabajos</small>
+      </a>
+    {% else %}
+      <div class="tarjeta vacia">
+        <span class="num">{{ n }}</span>
+        <h2>{{ u.titulo }}</h2>
+        <p>{{ u.descripcion }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}

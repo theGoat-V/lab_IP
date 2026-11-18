@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block titulo %}{{ trabajo.titulo }}{% endblock %}
+{% block contenido %}
+<p class="migas"><a href="{{ url_for('inicio') }}">Inicio</a> ›
+  <a href="{{ url_for('unidad', num=num) }}">{{ unidad.titulo }}</a> › {{ trabajo.titulo }}</p>
+<h1>{{ trabajo.titulo }}</h1>
+<p class="sub">{{ trabajo.archivo }} · {{ trabajo.descripcion }}</p>
+
+<div class="dos">
+  <section class="panel">
+    <h2>Probar</h2>
+    <form method="post" autocomplete="off">
+      {% for c in trabajo.campos %}
+      <div class="campo">
+        <label for="{{ c.name }}">{{ c.label }}</label>
+        {% if c.type == 'select' %}
+        <select id="{{ c.name }}" name="{{ c.name }}">
+          {% for val, txt in c.opciones %}<option value="{{ val }}" {% if valores[c.name] == val %}selected{% endif %}>{{ txt }}</option>{% endfor %}
+        </select>
+        {% else %}
+        <input id="{{ c.name }}" name="{{ c.name }}" type="{{ c.type }}"
+               value="{{ '' if c.type == 'password' else valores[c.name] }}"
+               {% if c.step %}step="{{ c.step }}"{% endif %}
+               {% if c.get('requerido', True) %}required{% endif %}
+               {% if loop.first %}autofocus{% endif %}>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="botones">
+        <button type="submit">Ejecutar</button>
+        <button type="button" class="secundario" data-limpiar>Limpiar</button>
+      </div>
+    </form>
+    {% if error %}<p class="error" data-resultado>{{ error }}</p>{% endif %}
+    {% if salida is not none %}
+      <div class="salida" data-resultado><span>Salida</span>{% for linea in salida %}<code>{{ linea }}</code>{% endfor %}</div>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>Código original</h2>
+    <pre>{{ codigo }}</pre>
+  </section>
+</div>
+
+<p><a class="volver" href="{{ url_for('unidad', num=num) }}">← Volver a {{ unidad.titulo }}</a></p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "menu_flask",
+			"path": "../../../../../../Downloads/menu_flask (2)/menu_flask"
+		},
+		{
+			"name": "lab_IP",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"python-envs.defaultEnvManager": "ms-python.python:system"
+	}
+}

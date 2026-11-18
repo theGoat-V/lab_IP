@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Menú de trabajos{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="{{ url_for('inicio') }}">Menú de trabajos</a>
+    <nav>
+      {% for n, u in unidades_nav.items() %}
+        <a href="{{ url_for('unidad', num=n) }}">{{ u.titulo }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+  <main>{% block contenido %}{% endblock %}</main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
