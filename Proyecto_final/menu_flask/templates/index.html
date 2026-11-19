@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block contenido %}
-<h1>Selecciona una unidad</h1>
+<section class="hero">
+  <p class="hero-eyebrow">Laboratorio interactivo · UAZ</p>
+  <h1>Laboratorio de <span>Programación</span></h1>
+  <ul class="hero-etiquetas">
+    <li>{{ total }} prácticas</li>
+  </ul>
+</section>
+
+<h2 class="seccion">Selecciona una unidad</h2>
 <div class="rejilla">
   {% for n, u in unidades.items() %}
     {% if u.trabajos %}

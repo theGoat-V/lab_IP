@@ -61,3 +61,12 @@ button.secundario:hover{background:var(--lavanda)}
 pre{margin:0;overflow:auto;max-height:520px;background:var(--gris);border:1px solid var(--lavanda);padding:.9rem;border-radius:10px;font-size:.85rem;line-height:1.45}
 .volver{display:inline-block;margin-top:1rem}
 .aviso{background:var(--blanco);border:1px dashed var(--azul-gris);padding:1rem;border-radius:10px;color:var(--mut)}
+
+/* Ventana de bienvenida (inicio) */
+.hero{padding:2.2rem 2rem;border:1px solid var(--rosa);border-radius:18px;background:linear-gradient(135deg,var(--rosa-claro),var(--lavanda) 60%,var(--azul-gris))}
+.hero-eyebrow{margin:0 0 .8rem;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--link)}
+.hero h1{margin:0 0 1.2rem;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;color:var(--txt)}
+.hero h1 span{display:block;color:var(--link)}
+.hero-etiquetas{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.hero-etiquetas li{padding:.45rem .9rem;border:1px solid var(--rosa);border-radius:10px;background:var(--gris);color:var(--txt);font-weight:600;font-size:.9rem}
+.seccion{margin:1.8rem 0 0}

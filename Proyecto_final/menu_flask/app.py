@@ -45,7 +45,8 @@ def inyectar_unidades():
 
 @app.route("/")
 def inicio():
-    return render_template("index.html", unidades=UNIDADES)
+    total = sum(len(u["trabajos"]) for u in UNIDADES.values())
+    return render_template("index.html", unidades=UNIDADES, total=total)
 
 
 @app.route("/unidad/<int:num>")
